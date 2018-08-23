@@ -42,4 +42,4 @@ The insertion in database tables was done as shown below:
 
 ```INSERT INTO `flights`(`source`, `destination`, `max_capacity`, `name`, `image_url`, `depart_time`, `arrival_time`, `duration`, `price`) VALUES ('Chennai', 'Delhi', '50', 'Flight006', 'https://www.farehawker.com/img/image/Airline-flight/elal-flight-image.jpg', '18:00', '20:00', '2 hrs', '6000')```
 
-The database file can be found [http://srmvdpauditorium.in/aaa/onedirect/db/onedirect_flightsystem.sql](here).
+The database file can be found [here](http://srmvdpauditorium.in/aaa/onedirect/db/onedirect_flightsystem.sql).
