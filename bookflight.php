@@ -3,6 +3,7 @@
 <head>
   <title>OneDirect Flight System</title>
   <meta charset="utf-8">
+  <!--Bootstrap Plugins-->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -50,12 +51,14 @@
   
   <?php
   	include 'connect.php';
+  	//Getting all GET Parameters
   	$flightId = $_GET['id'];
   	$passengers = $_GET['n'];
   	$date1 = $_GET['d'];
   ?>
 </head>
 <body>
+	<!--NavBar-->
 	<nav class="navbar navbar-inverse">
 	  <div class="container-fluid">
 	    <div class="navbar-header">
@@ -75,7 +78,7 @@
 	    </div>
 	  </div>
 	</nav>
-	  
+	<!--Main Div which contains all the required elements-->
 	<div class="container-fluid text-center" style="height: 95vh;">    
 	  <div class="row content" style="height: 100%;">
 	    <div class="col-sm-2 sidenav">
@@ -87,8 +90,9 @@
 	      <h1>Hi</h1>
 	      <p>
 	      	<?php
-	      		$booking_id = uniqid();
-		  	$sql = "INSERT INTO `bookings`(`booking_id`, `date`, `passengers`, `flight_id`) VALUES ('$booking_id', '$date1', '$passengers', '$flightId')";
+	      		//Adding booking to the database
+      			$booking_id = uniqid();
+			  	$sql = "INSERT INTO `bookings`(`booking_id`, `date`, `passengers`, `flight_id`) VALUES ('$booking_id', '$date1', '$passengers', '$flightId')";
 		        $retval = mysqli_query($connect, $sql);
 		    	if($retval===false)
 		    		echo "error: " .mysqli_error($connect);
@@ -102,6 +106,7 @@
 	      <hr>
 	      <h3>Email my Booking Id</h3>
 	      <p>Enter your Email Id below and your booking id will be mailed to you.</p>
+	      <!--Email form to mail the customer his/her booking ID-->
 	      <form style="heigth: 100%;" method="POST" action="sendemail.php?bookingid=<?php echo $booking_id;?>">
 		  <div class="form-group">
 		    <input type="email" required class="form_elements form-control" placeholder="Email Id" name="email" id="email">

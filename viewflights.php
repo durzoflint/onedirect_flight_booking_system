@@ -3,6 +3,7 @@
 <head>
   <title>OneDirect Flight System</title>
   <meta charset="utf-8">
+  <!--Bootstrap Plugins-->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -48,6 +49,7 @@
 
   <?php
   	include 'connect.php';
+  	//Geting POST parameters
   	if (isset($_POST['source'])) {
 		$source = $_POST['source'];
 	}
@@ -63,6 +65,7 @@
   ?>
 </head>
 <body>
+	<!--NavBar-->
 	<nav class="navbar navbar-inverse">
 	  <div class="container-fluid">
 	    <div class="navbar-header">
@@ -82,7 +85,7 @@
 	    </div>
 	  </div>
 	</nav>
-	  
+	<!--Main div which contains all import elemets-->
 	<div class="container-fluid text-center" style="height: 95vh;">    
 	  <div class="row content" style="height: 100%;">
 	    <div class="col-sm-2 sidenav">
@@ -96,6 +99,7 @@
 	      <hr>
 	      <h3>View Flights</h3>
 	      <?php
+	      	//Printing flight parameter data as entered by customer
 	      	echo "<p>{$source} -> {$destination}
 	      		<br>
 	      	      No. of Passengers: {$passengers}
@@ -103,7 +107,7 @@
 	      	      Date: {$date1}
 	      	      </p>";
 	      ?>
-	      
+	      <!--Table which contains all the the matching flights-->
 	      <table class="table table-bordered">
 	        <thead>
 	          <th>S. No.</th>
@@ -117,6 +121,7 @@
 	        </thead>
 	        <tbody>
 	          <?php
+	          //Fetching all flights which match the given parameters
 	            $sql = "SELECT * FROM flights WHERE source = '$source' and destination = '$destination'";
 	            $result = mysqli_query($connect, $sql);
 	            $i = 1;

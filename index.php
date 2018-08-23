@@ -3,6 +3,7 @@
 <head>
   <title>OneDirect Flight System</title>
   <meta charset="utf-8">
+  <!--Bootstrap Plugins-->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -57,6 +58,7 @@
   
   <script>
 	function validate() {
+		//Checking if source and destination match or not
 	    var source = document.getElementById("source").value;
 	    var destination = document.getElementById("destination").value;
 	    if(source == destination){
@@ -72,6 +74,7 @@
   ?>
 </head>
 <body>
+	<!--NavBar-->
 	<nav class="navbar navbar-inverse">
 	  <div class="container-fluid">
 	    <div class="navbar-header">
@@ -99,38 +102,39 @@
 	      <p><a href="#">Link</a></p>
 	      <p><a href="#">Link</a></p-->
 	    </div>
+	    <!--Main div which contains all important elements-->
 	    <div class="col-sm-8 text-left"> 
 	      <h1>Welcome</h1>
 	      <p>Welcome to OneDirect Flight Booking System.</p>
 	      <hr>
 	      <h3>Book Flights</h3>
 	      <p>Enter the required details to search compatible flights</p>
-	      
+	      <!--Form to search flights-->
 	      <form style="heigth: 100%;" method="POST" action="viewflights.php" onsubmit="return(validate());">
 		  <div class="form-group" >
 		    <select class="form_elements form-control" required name="source" id="source">
 		      <option disabled selected value="">From</option>
 		      <?php
-			$sql = "SELECT * FROM cities";
-			$result = mysqli_query($connect, $sql);
-			while ($row = mysqli_fetch_array($result))
-			{
-				$name = $row['name'];
-				echo "<option value='{$name}'>{$name}</option>";
-			}
+				$sql = "SELECT * FROM cities";
+				$result = mysqli_query($connect, $sql);
+				while ($row = mysqli_fetch_array($result))
+				{
+					$name = $row['name'];
+					echo "<option value='{$name}'>{$name}</option>";
+				}
 		      ?>
 		    </select>
 		    
 		    <select class="form_elements form-control" required name="destination" id="destination">
 		      <option disabled selected value="">To</option>
 		      <?php
-			$sql = "SELECT * FROM cities";
-			$result = mysqli_query($connect, $sql);
-			while ($row = mysqli_fetch_array($result))
-			{
-				$name = $row['name'];
-				echo "<option value='{$name}'>{$name}</option>";
-			}
+				$sql = "SELECT * FROM cities";
+				$result = mysqli_query($connect, $sql);
+				while ($row = mysqli_fetch_array($result))
+				{
+					$name = $row['name'];
+					echo "<option value='{$name}'>{$name}</option>";
+				}
 		      ?>
 		    </select>
 		    
