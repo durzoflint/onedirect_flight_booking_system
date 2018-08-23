@@ -24,6 +24,7 @@ Further, you can mail this booking id which will be recived as follows:
 ![Mail Confirmation](http://srmvdpauditorium.in/aaa/onedirect/images/Mail%20Confirmation.png)
 ![Mail](http://srmvdpauditorium.in/aaa/onedirect/images/Mail.png)
 ***
+# Database
 
 The Database has three tables as follows:
 ![Database Tables](http://srmvdpauditorium.in/aaa/onedirect/images/Database%20table.png)
@@ -36,3 +37,6 @@ The cities consists of the list of cities in this use case:
 
 The booking table stores all bookings with the booking id:
 ![Booking Table](http://srmvdpauditorium.in/aaa/onedirect/images/Booking%20Table.png)
+
+The insertion in database tables was done as shown below:
+```INSERT INTO `flights`(`source`, `destination`, `max_capacity`, `name`, `image_url`, `depart_time`, `arrival_time`, `duration`, `price`) VALUES ('Chennai', 'Delhi', '50', 'Flight006', 'https://www.farehawker.com/img/image/Airline-flight/elal-flight-image.jpg', '18:00', '20:00', '2 hrs', '6000')```
